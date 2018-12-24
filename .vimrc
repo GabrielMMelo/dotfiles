@@ -53,7 +53,12 @@ Plugin 'vim-scripts/YankRing.vim'
 Plugin 'vim-airline/vim-airline'
 
 Plugin 'vim-airline/vim-airline-themes'
-let g:airline_theme='deus'
+"let g:airline_theme='deus'
+let g:airline_theme='minimalist'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'default'
+nnoremap <tab> :bnext<CR>
+nnoremap <leader>w :bdelete<CR>
 
 Plugin 'scrooloose/nerdtree'
 
@@ -200,9 +205,9 @@ endif
 " CUSTOM MAPPINGS ---------------------------------------------------- {{{
 
 " Folding mappings
-nnoremap <tab>o za
-nnoremap <tab>j zj
-nnoremap <tab>k zk
+"nnoremap <tab>o za
+"nnoremap <tab>j zj
+"nnoremap <tab>k zk
 
 " Search mappings
 nnoremap <leader>f /
@@ -216,7 +221,7 @@ vnoremap <leader>p $
 vnoremap <leader>q ^
 
 " Fast shortcuts
-nnoremap <leader>w <C-w>
+"nnoremap <leader>w <C-w>
 nnoremap <leader>k <C-u>
 nnoremap <leader>j <C-d>
 
