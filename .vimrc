@@ -55,9 +55,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 let g:airline_theme='deus'
 
-"Plugin 'scrooloose/nerdtree'
-
-"map <C-n> :NERDTreeToggle<CR>
+Plugin 'scrooloose/nerdtree'
 
 " Plugin 'posva/vim-vue'
 
@@ -164,16 +162,22 @@ set tags=./tags;/
 
 " FILE BROWSING (netrw)----------------------------- {{{
 
-let g:netrw_banner=0
-let g:netrw_browse_split=0
-let g:netrw_altv=1
-let g:netrw_liststyle=3
-let g:netrw_winsize=30
+"let g:netrw_banner=0
+"let g:netrw_browse_split=0
+"let g:netrw_altv=1
+"let g:netrw_liststyle=3
+"let g:netrw_winsize=30
 
 "let g:netrw_list_hide=netrw_gititgnore#Hide()
 "let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S+'
 
-nnoremap <leader>n :Lexplore<CR>
+"Disable netrw
+let g:loaded_netrw       = 1
+let g:loaded_netrwPlugin = 1
+
+nnoremap <leader>n :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
+
 " }}}
 
 " Mapping
