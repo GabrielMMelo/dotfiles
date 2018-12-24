@@ -154,7 +154,7 @@ nnoremap <leader>s :find
 " Create the "tags" file (may need to install ctags first)
 "     Use ^] to jump to tag under cursor
 "     Use g^] for ambiguous tags
-"     Use ^] to jump back up the tag stack
+"     Use ^T to jump back up the tag stack
 command! MakeTags !ctags -R .
 set tags=./tags;/
 
