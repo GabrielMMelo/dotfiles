@@ -174,6 +174,7 @@ nnoremap <leader>n :Lexplore<CR>
 
 " Mapping
 imap jj <Esc>
+imap JJ <Esc>
 
 " Black hole register
 map <leader>b "_
@@ -391,6 +392,7 @@ function! CustomSum()
     endfor
     return sum
 endfunction
+
 
 " }}}
 
