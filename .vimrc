@@ -50,16 +50,14 @@ Plugin 'vim-scripts/YankRing.vim'
 
 "Plugin 'valloric/matchtagalways'
 
-Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline'
 
-Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'vim-airline/vim-airline-themes'
 "let g:airline_theme='deus'
-let g:airline_theme='minimalist'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'default'
-nnoremap <tab> :bnext<CR>
-nnoremap <leader>w :bdelete<CR>
-
+"let g:airline_theme='minimalist'
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#formatter = 'default'
+"let g:airline_powerline_fonts = 1
 Plugin 'scrooloose/nerdtree'
 
 " Plugin 'posva/vim-vue'
@@ -102,6 +100,50 @@ let g:mapleader = " "
 set encoding=utf-8
 "set clipboard=unnamed  " to use *
 set clipboard=unnamedplus  " to use ^C
+
+" STATUSLINE ------------------------------------------- {{{
+
+hi User1 ctermbg=235 ctermfg=white gui=BOLD
+hi User2 ctermbg=54 ctermfg=white
+hi User3 ctermbg=235 ctermfg=54
+
+" Get git branch
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+function! StatuslineGit()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+endfunction
+" Get vim mode
+let g:currentmode={ 'n' : 'Normal', 'no' : 'N·Operator Pending ', 'v' : 'Visual', 'V' : 'V·Line ', '^V' : 'V·Block ', 's' : 'Select', 'S': 'S·Line ', '^S' : 'S·Block ', 'i' : 'Insert', 'R' : 'Replace', 'Rv' : 'V·Replace ', 'c' : 'Command', 'cv' : 'Vim Ex', 'ce' : 'Ex ', 'r' : 'Prompt ', 'rm' : 'More ', 'r?' : 'Confirm ', '!' : 'Shell ', 't' : 'Terminal '}
+function! ModeCurrent() abort
+    let l:modecurrent = mode()
+    let l:modelist = toupper(get(g:currentmode, l:modecurrent, 'V·Block '))
+    let l:current_status_mode = l:modelist
+    return l:current_status_mode
+endfunction
+
+set noshowmode 
+set laststatus=2
+
+" Powerline icons
+" 
+set statusline=
+set statusline+=%2*%{StatuslineGit()}
+set statusline+=%2*\ %{ModeCurrent()}\ 
+set statusline+=%3*
+set statusline+=%1*
+set statusline+=\ %t
+set statusline+=%=
+set statusline+=%3*
+set statusline+=%2*
+set statusline+=\ \ %l
+set statusline+=/
+set statusline+=%L
+set statusline+=\ 
+set statusline+=%c\ \ 
+"}}}
 
 " INTERFACE ------------------------------ {{{
 
@@ -181,13 +223,20 @@ let g:loaded_netrw       = 1
 let g:loaded_netrwPlugin = 1
 
 nnoremap <leader>n :NERDTreeToggle<CR>
-map <C-n> :NERDTreeToggle<CR>
 
 " }}}
 
 " Mapping
 imap jj <Esc>
 imap JJ <Esc>
+nnoremap L $
+nnoremap H 0
+
+" TABS
+nnoremap <tab> gt 
+"nnoremap <leader>w :bdelete<CR>
+:au BufAdd,BufNewFile * nested tab sball
+nnoremap <C-W> :bdelete<CR>
 
 " Black hole register
 map <leader>b "_
@@ -242,7 +291,8 @@ nnoremap <silent> <leader>gc :Gcommit<CR>
 :set nowrap
 
 " Enumerating
-:set number relativenumber
+"set nonumber
+"set numberwidth=2
 
 " Hightlight
 
@@ -340,7 +390,7 @@ iabbrev @@ Written by Gabriel M. Melo, Federal University of Lavras.
 
 " }}}
 
-
+  
 
 " BEST PRACTICES ------------------------------------------------------ {{{
 
