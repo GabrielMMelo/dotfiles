@@ -35,6 +35,10 @@ Plugin 'valloric/youcompleteme'
 
 Plugin 'nvie/vim-flake8'
 
+" After yanking (or deleting), paste with P and then use <C-P> or <C-N> to
+" alternate between the historical yanks
+Plugin 'vim-scripts/YankRing.vim'
+
 "Plugin 'ctrlpvim/ctrlp.vim'
 
 "Plugin 'morhetz/gruvbox'
