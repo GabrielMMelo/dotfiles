@@ -104,8 +104,11 @@ set clipboard=unnamedplus  " to use ^C
 " STATUSLINE ------------------------------------------- {{{
 
 hi User1 ctermbg=235 ctermfg=white gui=BOLD
-hi User2 ctermbg=54 ctermfg=white
-hi User3 ctermbg=235 ctermfg=54
+hi User2 ctermbg=53 ctermfg=white
+hi User3 ctermbg=235 ctermfg=53
+hi User4 ctermbg=54 ctermfg=53
+hi User5 ctermbg=54 ctermfg=white
+hi User6 ctermbg=235 ctermfg=54
 
 " Get git branch
 function! GitBranch()
@@ -113,7 +116,7 @@ function! GitBranch()
 endfunction
 function! StatuslineGit()
   let l:branchname = GitBranch()
-  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+  return strlen(l:branchname) > 0?'  '.l:branchname.' ':'  '
 endfunction
 " Get vim mode
 let g:currentmode={ 'n' : 'Normal', 'no' : 'N·Operator Pending ', 'v' : 'Visual', 'V' : 'V·Line ', '^V' : 'V·Block ', 's' : 'Select', 'S': 'S·Line ', '^S' : 'S·Block ', 'i' : 'Insert', 'R' : 'Replace', 'Rv' : 'V·Replace ', 'c' : 'Command', 'cv' : 'Vim Ex', 'ce' : 'Ex ', 'r' : 'Prompt ', 'rm' : 'More ', 'r?' : 'Confirm ', '!' : 'Shell ', 't' : 'Terminal '}
@@ -130,9 +133,10 @@ set laststatus=2
 " Powerline icons
 " 
 set statusline=
-set statusline+=%2*%{StatuslineGit()}
 set statusline+=%2*\ %{ModeCurrent()}\ 
-set statusline+=%3*
+set statusline+=%4*
+set statusline+=%5*%{StatuslineGit()}
+set statusline+=%6*
 set statusline+=%1*
 set statusline+=\ %t
 set statusline+=%=
