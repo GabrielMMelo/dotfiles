@@ -44,8 +44,14 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20
 
+# low-battery notification (https://github.com/rjekker/i3-battery-popup)
+exec --no-startup-id i3-battery-popup -n -L 15 -l 10 -m "  Bateria está acabando!" -t 10s
+
 # kill focused window
 bindsym $mod+Shift+q kill
+
+# remove windows title (?)
+new_window 1pixel
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
