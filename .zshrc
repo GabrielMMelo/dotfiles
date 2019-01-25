@@ -126,3 +126,12 @@ PATH=$PATH:/usr/sbin/
 
 
 alias git-dots='/usr/bin/git --git-dir=/home/melo/.dots/ --work-tree=/home/melo'
+
+
+# PATH
+export PATH=$PATH:~/.local/bin
+
+# GO
+export PATH=$PATH:/usr/local/go/bin
+
+#

@@ -31,7 +31,7 @@ Plugin 'alvan/vim-closetag'
 
 Plugin 'valloric/youcompleteme'
 
-"Plugin 'lervag/vimtex'
+Plugin 'lervag/vimtex'
 
 Plugin 'nvie/vim-flake8'
 
@@ -235,6 +235,8 @@ imap jj <Esc>
 imap JJ <Esc>
 nnoremap L $
 nnoremap H 0
+vnoremap L $
+vnoremap H 0
 
 " TABS
 nnoremap <tab> gt 
@@ -367,18 +369,18 @@ augroup END
 
 " LaTeX ---------------------------------------------------- {{{
 
-"augroup filetype_latex
-"    autocmd!
-"    autocmd FileType tex nnoremap <buffer> <leader>c I%<esc>
-"    autocmd FileType text :setlocal spell spelllang=pt
-"    autocmd FileType text :hi SpellBad ctermbg=001
-"    autocmd FileType text :hi SpellBad ctermfg=255
-"    " Vimtex autocomplete with youcompleteme
-"    if !exists('g:ycm_semantic_triggers')
-"        :let g:ycm_semantic_triggers = {}
-"    endif
-"    :let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
-"augroup END
+augroup filetype_latex
+    autocmd!
+    autocmd FileType tex nnoremap <buffer> <leader>c I%<esc>
+    autocmd FileType text :setlocal spell spelllang=pt
+    autocmd FileType text :hi SpellBad ctermbg=001
+    autocmd FileType text :hi SpellBad ctermfg=255
+    " Vimtex autocomplete with youcompleteme
+    if !exists('g:ycm_semantic_triggers')
+        :let g:ycm_semantic_triggers = {}
+    endif
+    :let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
+augroup END
 
 
 " }}}
