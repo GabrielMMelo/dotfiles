@@ -46,6 +46,9 @@ Plugin 'vim-scripts/YankRing.vim'
 "Plugin 'morhetz/gruvbox'
 
 "Plugin 'jaxbot/browserlink.vim'
+" Taglist! "
+nnoremap <F8> :!ctags -R --exclude=node_modules --python-kinds=-i --python-kinds=-a -a * -a $VIRTUAL_ENV/lib/python3.6/site-packages/*
+nnoremap <C-]> g<C-]>
 
 "colorscheme gruvbox
 "set background=dark
