@@ -27,115 +27,96 @@
 # Change $SCRIPT_DIR to the location of your scripts!
 #SCRIPT_DIR=~/.config/i3blocks/blocklets
 command=$SCRIPT_DIR/$BLOCK_NAME
-separator_block_width=15
+separator_block_width=30
 markup=none
-
-# Volume indicator
-#
-# The first parameter sets the step (and units to display)
-# The second parameter overrides the mixer selection
-# See the script for details.
-
-[volume]
-#label=♪
-label=VOL
-interval=once
-signal=10
-#STEP=5%
-
-# Memory usage
-#
-# The type defaults to "mem" if the instance is not specified.
-[memory]
-label=MEM
-separator=false
-interval=30
-
-[memory]
-label=SWAP
-instance=swap
-separator=false
-interval=30
-
-# Disk usage
-#
-# The directory defaults to $HOME if the instance is not specified.
-# The script may be called with a optional argument to set the alert
-# (defaults to 10 for 10%).
-[disk]
-label=HOME
-#DIR=/mnt/data
-interval=30
-
-# Network interface monitoring
-#
-# If the instance is not specified, use the interface used for default route.
-# The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
-[iface]
-#IFACE=wlan0
-color=#00FF00
-interval=10
-separator=false
-
-[wifi]
-#INTERFACE=wlp3s0
-label=wifi:
-interval=10
-separator=false
-
-[bandwidth]
-#INTERFACE=eth0
-interval=5
-
-# CPU usage
-#
-# The script may be called with -w and -c switches to specify thresholds,
-# see the script for details.
-[cpu_usage]
-label=CPU
-interval=10
-min_width=CPU 100.00%
-#separator=false
-
-[load_average]
-label=LOAD
-interval=10
-
-# Battery indicator
-#
-# The battery instance defaults to 0.
-[battery]
-label=BAT
-#label=⚡
-interval=30
 
 [nextmatch]
 command=~/.config/i3blocks/blocklets/nextmatch
-color=#FF0000
+color=#8B008B
 interval=3500
 
-# Calendar
+[volume-pulseaudio]
+command=~/.config/i3blocks/blocklets/volume-pulseaudio
+interval=1
+signal=1
+#MIXER=[determined automatically]
+#SCONTROL=[determined automatically]
+##exposed format variables: ${SYMB}, ${VOL}, ${INDEX}, ${NAME}
+#LONG_FORMAT="${SYMB} ${VOL}% [${INDEX}:${NAME}]"
+#SHORT_FORMAT="${SYMB} ${VOL}% [${INDEX}]"
+#AUDIO_HIGH_SYMBOL='  '
+#AUDIO_MED_THRESH=50
+#AUDIO_MED_SYMBOL='  '
+#AUDIO_LOW_THRESH=0
+#AUDIO_LOW_SYMBOL='  '
+#AUDIO_DELTA=5
+#DEFAULT_COLOR="#ffffff"
+#MUTED_COLOR="#a0a0a0"
+#USE_ALSA_NAME=0
+#USE_DESCRIPTION=0
+## SUBSCRIBE=1 requires interval=persist and always uses LONG_FORMAT
+#SUBSCRIBE=0
+
+[essid-wireless]
+label= 
+command=~/.config/i3blocks/blocklets/essid
+interval=10
+color=#a0a0FF
+INTERFACE=wlp5s0
+
+[iface-wireless]
+command=~/.config/i3blocks/blocklets/iface
+IFACE=wlp5s0
+color=#a0a0FF
+interval=10
+#ADDRESS_FAMILY=inet6?
+#LABEL=wlan0:
+
+[iface-ethernet]
+command=~/.config/i3blocks/blocklets/iface
+IFACE=enp4s0
+color=#a0a0FF
+interval=10
+#ADDRESS_FAMILY=inet6?
+#LABEL=wlan0:
+
+[cpu_usage]
+command=~/.config/i3blocks/blocklets/cpu_usage
+label=  
+interval=1
+T_WARN=50
+T_CRIT=80
+#min_width=CPU: 100.00%
+#DECIMALS=2
+
+[battery2]
+command=~/.config/i3blocks/blocklets/battery2
+markup=pango
+interval=10
+
 [calendar]
 command=~/.config/i3blocks/blocklets/calendar
 interval=1
 LABEL=   
-DATEFMT=+%d-%m-%Y %H:%M:%S
-# SHORTFMT=+%H:%M:%S
+DATEFMT=+%d/%m/%Y %H:%M:%S
 HEIGHT=180
 WIDTH=220
+# SHORTFMT=+%H:%M:%S
 
 [shutdown_menu]
-full_text=
+full_text=  
+color=#8B008B
+align=center
 command=~/.config/i3blocks/blocklets/shutdown_menu
+ROFI_TEXT=Command:
+ROFI_OPTIONS=-width 11 -location 5 -hide-scrollbar -bw 2
+ENABLE_CONFIRMATIONS=true
+LAUNCHER=rofi
 #FG_COLOR=#FFFFFF
 #BG_COLOR=#000000
 #HLFG_COLOR=#FFFFFF
 #HLBG_COLOR=#000000
 #BORDER_COLOR=#222222
-ROFI_TEXT=Command:
-ROFI_OPTIONS=-width 11 -location 5 -hide-scrollbar -bw 2
-ENABLE_CONFIRMATIONS=true
-LAUNCHER=rofi
 #ZENITY_TITLE=Menu
 #ZENITY_TEXT=Action:
 #ZENITY_OPTIONS=--column= --hide-header
