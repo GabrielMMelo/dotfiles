@@ -41,6 +41,8 @@ Plugin 'nvie/vim-flake8'
 " alternate between the historical yanks
 Plugin 'vim-scripts/YankRing.vim'
 
+set encoding=UTF-8
+
 "Plugin 'ctrlpvim/ctrlp.vim'
 
 "Plugin 'morhetz/gruvbox'
@@ -73,6 +75,10 @@ Plugin 'scrooloose/nerdtree'
 Plugin '907th/vim-auto-save'
 " Autosaving
 let g:auto_save = 1
+
+Plugin 'ryanoasis/vim-devicons'
+"set guifont=DroidSansMono\ Nerd\ Font\ 11
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
 
 " Plugin dbext https://www.vim.org/scripts/script.php?script_id=356
 " dbext.vim variables
@@ -108,7 +114,7 @@ set clipboard=unnamedplus  " to use ^C
 
 " STATUSLINE ------------------------------------------- {{{
 
-hi User1 ctermbg=235 ctermfg=white gui=BOLD
+hi User1 ctermbg=235 ctermfg=white
 hi User2 ctermbg=53 ctermfg=white
 hi User3 ctermbg=235 ctermfg=53
 hi User4 ctermbg=54 ctermfg=53
