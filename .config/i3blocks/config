@@ -82,6 +82,7 @@ interval=10
 
 [cpu_usage]
 command=~/.config/i3blocks/blocklets/cpu_usage
+color=#f48642
 label=  
 interval=1
 T_WARN=50
@@ -102,6 +103,24 @@ DATEFMT=+%d/%m/%Y %H:%M:%S
 HEIGHT=180
 WIDTH=220
 # SHORTFMT=+%H:%M:%S
+
+[monitors]
+command=~/.config/i3blocks/blocklets/monitor_manager
+interval=once
+#SHOW_ON_OFF=1
+#SHOW_NAMES=1
+#SHOW_PRIMARY=1
+#SHOW_MODE=1
+#SHOW_BLANKED=1
+#SHOW_DUPLICATE=1
+#SHOW_ROTATION=1
+#SHOW_REFLECTION=1
+#SHOW_BRIGHTNESS=1
+#SHOW_BRIGHTNESS_VALUE=0
+#SHOW_UP_DOWN=1
+#FONT_FAMILY=DejaVu Sans Mono
+#FONT_SIZE=11
+#CLOSE_TO_BOUNDARY_BUFFER=20
 
 [shutdown_menu]
 full_text=  
