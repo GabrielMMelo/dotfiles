@@ -54,7 +54,7 @@ bindsym Control+Mod1+Delete exec ~/.config/i3blocks/blocklets/shutdown_menu
 exec --no-startup-id nitrogen --restore
 
 # low-battery notification (https://github.com/rjekker/i3-battery-popup)
-exec --no-startup-id i3-battery-popup -n -L 15 -l 10 -m "  Bateria está acabando!" -t 10s
+exec --no-startup-id i3-battery-popup -L 15 -l 10 -m "  Bateria está acabando!" -t 10s && spd-say "MY, BATTERY, IS, FUCKING, LOW" 
 
 # kill focused window
 bindsym $mod+Shift+q kill
