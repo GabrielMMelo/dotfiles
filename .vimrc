@@ -378,6 +378,16 @@ augroup filetype_python
 augroup END
 " }}}
 
+
+" Javascript ---------------------------------------------- {{{
+augroup filetype_javascript
+    autocmd!
+    autocmd! BufRead,BufNewFile *.{js,vue} setfiletype javascript
+    autocmd FileType javascript nnoremap <buffer> <leader>c :s/^/\/\//<CR>
+    autocmd FileType javascript nnoremap <buffer> <leader>d :s/^.*\/\///<CR>
+augroup END
+"  }}}
+
 " LaTeX ---------------------------------------------------- {{{
 
 augroup filetype_latex
