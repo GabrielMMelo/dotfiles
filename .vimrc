@@ -1,5 +1,6 @@
 "
-" Written by Gabriel M. Melo, Federal University of Lavras. 
+" Written by Gabriel M. Melo, 2019
+" Federal University of Lavras. 
 "
 
 " SOURCES --------------------------------- {{{
@@ -25,33 +26,58 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " MY PLUGINS !!!! "
-Plugin 'tpope/vim-fugitive'
 
-Plugin 'alvan/vim-closetag'
+" GENERAL ---------------------------------------- {{{
+
+Plugin 'tpope/vim-fugitive'
 
 Plugin 'valloric/youcompleteme'
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_autoclose_preview_window_after_completion = 0
 
-Plugin 'lervag/vimtex'
-
-Plugin 'nvie/vim-flake8'
-
 " After yanking (or deleting), paste with P and then use <C-P> or <C-N> to
 " alternate between the historical yanks
 Plugin 'vim-scripts/YankRing.vim'
 
-set encoding=UTF-8
+Plugin '907th/vim-auto-save'
+let g:auto_save = 1
+
+" }}}
+
+" INTERFACE ---------------------------------------- {{{
+
+Plugin 'ryanoasis/vim-devicons'
+"set guifont=DroidSansMono\ Nerd\ Font\ 11
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
+
+Plugin 'scrooloose/nerdtree'
+
+" }}}
+
+" LANGUAGES ---------------------------------------- {{{
+
+" Javascript
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+
+" Python
+Plugin 'nvie/vim-flake8'
+
+" Tex
+Plugin 'lervag/vimtex'
+
+" HTML
+Plugin 'alvan/vim-closetag'
+
+" }}}
+
+" UNUSED PLUGINS! ----------------------------- {{{ 
 
 "Plugin 'ctrlpvim/ctrlp.vim'
 
 "Plugin 'morhetz/gruvbox'
 
 "Plugin 'jaxbot/browserlink.vim'
-" Taglist! "
-nnoremap <F8> :!ctags -R --exclude=node_modules --python-kinds=-i --python-kinds=-a -a * -a $VIRTUAL_ENV/lib/python3.6/site-packages/*
-nnoremap <C-]> g<C-]>
-
 "colorscheme gruvbox
 "set background=dark
 
@@ -65,25 +91,17 @@ nnoremap <C-]> g<C-]>
 "let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#formatter = 'default'
 "let g:airline_powerline_fonts = 1
-Plugin 'scrooloose/nerdtree'
 
 " Plugin 'posva/vim-vue'
 
 "Plugin 'airblade/vim-gitgutter'
 "set updatetime=100
 
-Plugin '907th/vim-auto-save'
-" Autosaving
-let g:auto_save = 1
-
-Plugin 'ryanoasis/vim-devicons'
-"set guifont=DroidSansMono\ Nerd\ Font\ 11
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
+" }}}
 
 " Plugin dbext https://www.vim.org/scripts/script.php?script_id=356
 " dbext.vim variables
 ":let g:dbext_default_profile = 'PG'
-
 
 " " All of your Plugins must be added before the following line
 
@@ -109,6 +127,7 @@ let g:mapleader = " "
 
 " Encoding
 set encoding=utf-8
+
 "set clipboard=unnamed  " to use *
 set clipboard=unnamedplus  " to use ^C
 
@@ -177,8 +196,8 @@ set tm=500
 set mouse=c
 
 " Paths
-"set backupdir=~/.vim/backup//
-"set directory=~/.vim/swap//
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
 "set undodir=~/.vim/undo//
 "}}}
 
@@ -293,6 +312,10 @@ nnoremap <leader>j <C-d>
 
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gc :Gcommit<CR>
+
+" Indent
+nnoremap <leader>i :normal! G=gg<CR>
+
 " }}}
 
 
@@ -375,6 +398,9 @@ augroup filetype_python
     autocmd!
     autocmd FileType python nnoremap <buffer> <leader>c I#<esc>
     autocmd FileType python nnoremap <buffer> <leader>d 0/#<CR>x
+    " Taglist
+    autocmd FileType python nnoremap <F8> :!ctags -R --exclude=node_modules --python-kinds=-i --python-kinds=-a -a * -a $VIRTUAL_ENV/lib/python3.6/site-packages/*
+    autocmd FileType python nnoremap <C-]> g<C-]>
 augroup END
 " }}}
 
@@ -467,10 +493,6 @@ function! GetHomePath()
     return path
 endfunction
 
-function! PautaAta(point, subpoint)
-    echom a:point
-endfunction
-
 function! CustomSum()
     let sum = 0
     for l in range( 1, line('$') )
@@ -489,9 +511,6 @@ endfunction
 
 
 " IDEAS ------------------------------------------ {{{
-
-"- H go to the top, but when we tap H twice, we'll go to top and up more the
-"   screen lines number to make faster the movement
 
 " import different files to .vimrc (one for each device) or separe with 'ifs'
 " checking some OS/device information
