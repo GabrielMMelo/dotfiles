@@ -32,8 +32,9 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 
 Plugin 'valloric/youcompleteme'
-let g:ycm_min_num_of_chars_for_completion = 1
-let g:ycm_autoclose_preview_window_after_completion = 0
+let g:ycm_min_num_of_chars_for_completion = 3
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_add_preview_to_completeopt = 0
 
 " After yanking (or deleting), paste with P and then use <C-P> or <C-N> to
 " alternate between the historical yanks
@@ -62,6 +63,12 @@ Plugin 'mxw/vim-jsx'
 
 " Python
 Plugin 'nvie/vim-flake8'
+Plugin 'python-mode/python-mode', { 'branch': 'develop' }
+let g:pymode_python = 'python'
+let g:pymode_lint_cwindow = 0
+let g:pymode_rope = 1
+let g:pymode_rope_autoimport=1
+let g:pymode_breakpoint_bind = '<leader>p'
 
 " Tex
 Plugin 'lervag/vimtex'
@@ -194,6 +201,13 @@ set tm=500
 
 " Disable mouse
 set mouse=c
+
+" Line limiter
+if exists('+colorcolumn')
+    set colorcolumn=80
+else
+    au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
 
 " Paths
 set backupdir=~/.vim/backup//
@@ -332,7 +346,9 @@ nnoremap <leader>i :normal! G=gg<CR>
 
 " Enumerating
 "set nonumber
-"set numberwidth=2
+set numberwidth=4
+highlight LineNr ctermfg=242 ctermbg=235
+
 
 " Hightlight
 
