@@ -134,4 +134,5 @@ export PATH=$PATH:~/.local/bin
 # GO
 export PATH=$PATH:/usr/local/go/bin
 
-#
+# Yarn
+export PATH="$(yarn global bin):$PATH"
