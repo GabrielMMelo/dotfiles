@@ -30,11 +30,14 @@ font pango:FontAwesome 12
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# Prevent mouse to toggle window focus when hover
+focus_follows_mouse no
+
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
 # startapps
-bindsym $mod+b exec firefox &
+bindsym $mod+b exec google-chrome &
 bindsym $mod+e exec thunar &
 
 # fn functions
@@ -129,6 +132,7 @@ set $workspace2 ""
 set $workspace3 ""
 set $workspace4 ""
 set $workspace5 ""
+set $workspace6 ""
 set $workspace7 ""
 set $workspace8 ""
 set $workspace9 ""
@@ -139,7 +143,7 @@ bindsym $mod+2 workspace $workspace2
 bindsym $mod+3 workspace $workspace3
 bindsym $mod+4 workspace $workspace4
 bindsym $mod+5 workspace $workspace5
-bindsym $mod+6 workspace number 6
+bindsym $mod+6 workspace $workspace6
 bindsym $mod+7 workspace $workspace7
 bindsym $mod+8 workspace $workspace8
 bindsym $mod+9 workspace $workspace9
@@ -151,7 +155,7 @@ bindsym $mod+Shift+2 move container to workspace $workspace2
 bindsym $mod+Shift+3 move container to workspace $workspace3
 bindsym $mod+Shift+4 move container to workspace $workspace4
 bindsym $mod+Shift+5 move container to workspace $workspace5
-bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+6 move container to workspace $workspace6
 bindsym $mod+Shift+7 move container to workspace $workspace7
 bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
