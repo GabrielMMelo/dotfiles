@@ -1,6 +1,6 @@
 #!/bin/bash
 
-next_match=`echo | curl -s http://gabrielmelo.ddns.net:3000/crawl.json\?start_requests\=true\&spider_name\=netvasco`
+next_match=`echo | curl -s http://gabrielmelo.ddns.net:3389/crawl.json\?start_requests\=true\&spider_name\=netvasco`
 adversary=`echo "$next_match" | jq '.items[0].adversary[0]'`
 datetime=`echo "$next_match" | jq '.items[0].datetime'`
 echo "${adversary//\"} (${datetime//\"})" 

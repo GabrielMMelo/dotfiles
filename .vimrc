@@ -156,11 +156,11 @@ set clipboard=unnamedplus  " to use ^C
 " STATUSLINE ------------------------------------------- {{{
 
 hi User1 ctermbg=235 ctermfg=white
-hi User2 ctermbg=53 ctermfg=white
-hi User3 ctermbg=235 ctermfg=53
-hi User4 ctermbg=54 ctermfg=53
-hi User5 ctermbg=54 ctermfg=white
-hi User6 ctermbg=235 ctermfg=54
+hi User2 ctermbg=24 ctermfg=white
+hi User3 ctermbg=235 ctermfg=24
+hi User4 ctermbg=25 ctermfg=24
+hi User5 ctermbg=25 ctermfg=white
+hi User6 ctermbg=235 ctermfg=25
 
 " Get git branch
 function! GitBranch()
@@ -225,8 +225,8 @@ else
 endif
 
 " Paths
-set backupdir=~/.vim/backup//
-set directory=~/.vim/swap//
+set backupdir=~/.config/vim/backup//
+set directory=~/.config/vim/swap//
 "set undodir=~/.vim/undo//
 "}}}
 
