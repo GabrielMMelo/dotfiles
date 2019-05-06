@@ -47,11 +47,11 @@ let g:auto_save = 1
 
 " INTERFACE ---------------------------------------- {{{
 
-Plugin 'ryanoasis/vim-devicons'
+"Plugin 'ryanoasis/vim-devicons'
 "set guifont=DroidSansMono\ Nerd\ Font\ 11
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
+"set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
 
-Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/nerdtree'
 
 " }}}
 
@@ -285,7 +285,7 @@ set tags=./tags;/
 let g:loaded_netrw       = 1
 let g:loaded_netrwPlugin = 1
 
-nnoremap <leader>n :NERDTreeToggle<CR>
+"nnoremap <leader>n :NERDTreeToggle<CR>
 
 " }}}
 
@@ -536,7 +536,16 @@ function! CustomSum()
     return sum
 endfunction
 
-
+function! RangerExplorer()
+    exec "silent !ranger --choosefile=/tmp/vim_ranger_current_file " . expand("%:p:h")
+    if filereadable('/tmp/vim_ranger_current_file')
+        exec 'edit ' . system('cat /tmp/vim_ranger_current_file')
+        call system('rm /tmp/vim_ranger_current_file')
+    endif
+    redraw!
+endfun
+map <Leader>n :call RangerExplorer()<CR>
+"
 " }}}
 
 
