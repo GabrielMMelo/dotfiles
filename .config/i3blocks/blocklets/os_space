@@ -1,0 +1,1 @@
+echo `df -h | grep '\/home$' | sed 's/.*\([0-9]\.[0-9]G\).*\/home$/\1/g'`

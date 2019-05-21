@@ -32,8 +32,22 @@ markup=none
 
 [nextmatch]
 command=~/.config/i3blocks/blocklets/nextmatch
-color=#8B008B
+color=#363636
 interval=3500
+
+[os-space]
+command=~/.config/i3blocks/blocklets/os_space
+label=/ 
+interval=60
+signal=1
+color=#466746
+
+[home-space]
+command=~/.config/i3blocks/blocklets/home_space
+label=/home 
+interval=60
+signal=1
+color=#674646
 
 [volume-pulseaudio]
 command=~/.config/i3blocks/blocklets/volume-pulseaudio
@@ -57,26 +71,26 @@ signal=1
 ## SUBSCRIBE=1 requires interval=persist and always uses LONG_FORMAT
 #SUBSCRIBE=0
 
-[essid-wireless]
-label= 
-command=~/.config/i3blocks/blocklets/essid
-interval=10
-color=#a0a0FF
-INTERFACE=wlp5s0
+#[essid-wireless]
+#label= 
+#command=~/.config/i3blocks/blocklets/essid
+#interval=10
+#color=#a0a0FF
+#INTERFACE=ens34
 
-[iface-wireless]
-command=~/.config/i3blocks/blocklets/iface
-IFACE=wlp5s0
-color=#a0a0FF
-interval=10
-#ADDRESS_FAMILY=inet6?
-#LABEL=wlan0:
+#[iface-wireless]
+#command=~/.config/i3blocks/blocklets/iface
+#IFACE=wlp5s0
+#color=#a0a0FF
+#interval=10
+##ADDRESS_FAMILY=inet6?
+##LABEL=wlan0:
 
-[iface-ethernet]
-command=~/.config/i3blocks/blocklets/iface
-IFACE=enp4s0
-color=#a0a0FF
-interval=10
+#[iface-ethernet]
+#command=~/.config/i3blocks/blocklets/iface
+#IFACE=ens34
+#color=#a0a0FF
+#interval=10
 #ADDRESS_FAMILY=inet6?
 #LABEL=wlan0:
 
@@ -84,102 +98,102 @@ interval=10
 command=~/.config/i3blocks/blocklets/cpu_usage
 color=#f48642
 label=  
-interval=1
-T_WARN=50
-T_CRIT=80
-#min_width=CPU: 100.00%
-#DECIMALS=2
+interval=3
+#T_WARN=50
+#T_CRIT=80
+##min_width=CPU: 100.00%
+##DECIMALS=2
 
-[battery2]
-command=~/.config/i3blocks/blocklets/battery2
-markup=pango
-interval=10
+#[battery2]
+#command=~/.config/i3blocks/blocklets/battery2
+#markup=pango
+#interval=10
 
 [calendar]
 command=~/.config/i3blocks/blocklets/calendar
 interval=1
-LABEL=   
-DATEFMT=+%d/%m/%Y %H:%M:%S
-HEIGHT=180
-WIDTH=220
-# SHORTFMT=+%H:%M:%S
+#LABEL=   
+#DATEFMT=+%d/%m/%Y %H:%M:%S
+#HEIGHT=180
+#WIDTH=220
+## SHORTFMT=+%H:%M:%S
 
-[monitors]
-command=~/.config/i3blocks/blocklets/monitor_manager
-interval=once
-#SHOW_ON_OFF=1
-#SHOW_NAMES=1
-#SHOW_PRIMARY=1
-#SHOW_MODE=1
-#SHOW_BLANKED=1
-#SHOW_DUPLICATE=1
-#SHOW_ROTATION=1
-#SHOW_REFLECTION=1
-#SHOW_BRIGHTNESS=1
-#SHOW_BRIGHTNESS_VALUE=0
-#SHOW_UP_DOWN=1
-#FONT_FAMILY=DejaVu Sans Mono
-#FONT_SIZE=11
-#CLOSE_TO_BOUNDARY_BUFFER=20
+#[monitors]
+#command=~/.config/i3blocks/blocklets/monitor_manager
+#interval=once
+##SHOW_ON_OFF=1
+##SHOW_NAMES=1
+##SHOW_PRIMARY=1
+##SHOW_MODE=1
+##SHOW_BLANKED=1
+##SHOW_DUPLICATE=1
+##SHOW_ROTATION=1
+##SHOW_REFLECTION=1
+##SHOW_BRIGHTNESS=1
+##SHOW_BRIGHTNESS_VALUE=0
+##SHOW_UP_DOWN=1
+##FONT_FAMILY=DejaVu Sans Mono
+##FONT_SIZE=11
+##CLOSE_TO_BOUNDARY_BUFFER=20
 
 [shutdown_menu]
 full_text=  
 color=#8B008B
 align=center
 command=~/.config/i3blocks/blocklets/shutdown_menu
-ROFI_TEXT=Command:
-ROFI_OPTIONS=-width 11 -location 5 -hide-scrollbar -bw 2
-ENABLE_CONFIRMATIONS=true
-LAUNCHER=rofi
-#FG_COLOR=#FFFFFF
-#BG_COLOR=#000000
-#HLFG_COLOR=#FFFFFF
-#HLBG_COLOR=#000000
-#BORDER_COLOR=#222222
-#ZENITY_TITLE=Menu
-#ZENITY_TEXT=Action:
-#ZENITY_OPTIONS=--column= --hide-header
-#LOCKSCRIPT=i3lock --color=${BG_COLOR#"#"}
+#ROFI_TEXT=Command:
+#ROFI_OPTIONS=-width 11 -location 5 -hide-scrollbar -bw 2
+#ENABLE_CONFIRMATIONS=true
+#LAUNCHER=rofi
+##FG_COLOR=#FFFFFF
+##BG_COLOR=#000000
+##HLFG_COLOR=#FFFFFF
+##HLBG_COLOR=#000000
+##BORDER_COLOR=#222222
+##ZENITY_TITLE=Menu
+##ZENITY_TEXT=Action:
+##ZENITY_OPTIONS=--column= --hide-header
+##LOCKSCRIPT=i3lock --color=${BG_COLOR#"#"}
 
-# Generic media player support
-#
-# This displays "ARTIST - SONG" if a music is playing.
-# Supported players are: spotify, vlc, audacious, xmms2, mplayer, and others.
-#[mediaplayer]
-#instance=spotify
-#interval=5
-#signal=10
+## Generic media player support
+##
+## This displays "ARTIST - SONG" if a music is playing.
+## Supported players are: spotify, vlc, audacious, xmms2, mplayer, and others.
+##[mediaplayer]
+##instance=spotify
+##interval=5
+##signal=10
 
-# OpenVPN support
-#
-# Support multiple VPN, with colors.
-#[openvpn]
-#interval=20
+## OpenVPN support
+##
+## Support multiple VPN, with colors.
+##[openvpn]
+##interval=20
 
-# Temperature
-#
-# Support multiple chips, though lm-sensors.
-# The script may be called with -w and -c switches to specify thresholds,
-# see the script for details.
-#[temperature]
-#label=TEMP
-#interval=10
+## Temperature
+##
+## Support multiple chips, though lm-sensors.
+## The script may be called with -w and -c switches to specify thresholds,
+## see the script for details.
+##[temperature]
+##label=TEMP
+##interval=10
 
-# Key indicators
-#
-# Add the following bindings to i3 config file:
-#
-# bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
-# bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
-#[keyindicator]
-#KEY=CAPS
-#markup=pango
-#interval=once
-#signal=11
+## Key indicators
+##
+## Add the following bindings to i3 config file:
+##
+## bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+## bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
+##[keyindicator]
+##KEY=CAPS
+##markup=pango
+##interval=once
+##signal=11
 
-#[keyindicator]
-#KEY=NUM
-#markup=pango
-#interval=once
-#signal=11
+##[keyindicator]
+##KEY=NUM
+##markup=pango
+##interval=once
+##signal=11
 

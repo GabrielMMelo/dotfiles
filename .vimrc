@@ -47,11 +47,11 @@ let g:auto_save = 1
 
 " INTERFACE ---------------------------------------- {{{
 
-Plugin 'ryanoasis/vim-devicons'
+"Plugin 'ryanoasis/vim-devicons'
 "set guifont=DroidSansMono\ Nerd\ Font\ 11
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
+"set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
 
-Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/nerdtree'
 
 " }}}
 
@@ -156,11 +156,11 @@ set clipboard=unnamedplus  " to use ^C
 " STATUSLINE ------------------------------------------- {{{
 
 hi User1 ctermbg=235 ctermfg=white
-hi User2 ctermbg=53 ctermfg=white
-hi User3 ctermbg=235 ctermfg=53
-hi User4 ctermbg=54 ctermfg=53
-hi User5 ctermbg=54 ctermfg=white
-hi User6 ctermbg=235 ctermfg=54
+hi User2 ctermbg=24 ctermfg=white
+hi User3 ctermbg=235 ctermfg=24
+hi User4 ctermbg=25 ctermfg=24
+hi User5 ctermbg=25 ctermfg=white
+hi User6 ctermbg=235 ctermfg=25
 
 " Get git branch
 function! GitBranch()
@@ -225,8 +225,8 @@ else
 endif
 
 " Paths
-set backupdir=~/.vim/backup//
-set directory=~/.vim/swap//
+set backupdir=~/.config/vim/backup//
+set directory=~/.config/vim/swap//
 "set undodir=~/.vim/undo//
 "}}}
 
@@ -285,7 +285,7 @@ set tags=./tags;/
 let g:loaded_netrw       = 1
 let g:loaded_netrwPlugin = 1
 
-nnoremap <leader>n :NERDTreeToggle<CR>
+"nnoremap <leader>n :NERDTreeToggle<CR>
 
 " }}}
 
@@ -536,7 +536,16 @@ function! CustomSum()
     return sum
 endfunction
 
-
+function! RangerExplorer()
+    exec "silent !ranger --choosefile=/tmp/vim_ranger_current_file " . expand("%:p:h")
+    if filereadable('/tmp/vim_ranger_current_file')
+        exec 'edit ' . system('cat /tmp/vim_ranger_current_file')
+        call system('rm /tmp/vim_ranger_current_file')
+    endif
+    redraw!
+endfun
+map <Leader>n :call RangerExplorer()<CR>
+"
 " }}}
 
 

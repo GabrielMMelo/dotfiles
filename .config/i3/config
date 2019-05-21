@@ -18,7 +18,7 @@ set $mod Mod1
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 # font pango:DejaVu Sans Mono 8
-font pango:FontAwesome 12
+font pango:FontAwesome 10
 
 # Before i3 v4.8, we used to recommend this one as the default:
 #font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -34,10 +34,10 @@ floating_modifier $mod
 focus_follows_mouse no
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec st
 
 # startapps
-bindsym $mod+b exec google-chrome &
+bindsym $mod+b exec chromium &
 bindsym $mod+e exec thunar &
 
 # fn functions
@@ -55,6 +55,9 @@ bindsym Control+Mod1+Delete exec ~/.config/i3blocks/blocklets/shutdown_menu
 
 # wallpaper
 exec --no-startup-id nitrogen --restore
+
+# transparency
+exec --no-startup-id compton
 
 # low-battery notification (https://github.com/rjekker/i3-battery-popup)
 exec --no-startup-id i3-battery-popup -L 15 -l 10 -m "  Bateria está acabando!" -t 10s && spd-say "MY, BATTERY, IS, FUCKING, LOW" 
@@ -203,8 +206,8 @@ bar {
 		#statusline #FFFFFF
 		#separator  #666666
 
-		focused_workspace  #800080 #771861 #FFFFFF
-		active_workspace   #333333 #222222 #FFFFFF
+		focused_workspace  #09386D #0c488c #ffffff
+		active_workspace   #333333 #222222 #ffffff
 		inactive_workspace #333333 #222222 #888888
 		urgent_workspace   #2F343A #900000 #FFFFFF
 		binding_mode       #2F343A #900000 #FFFFFF
